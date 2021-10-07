@@ -1,0 +1,48 @@
+<mat-card>
+  <p class="title">
+    <span>{{ titulo }}</span>
+  </p>
+
+  <p>
+    <span *ngIf="escolhaAte > 1" class="contador"
+      >Escolha até {{ escolhaAte }} {{ contador }}</span
+    >
+  </p>
+</mat-card>
+
+<div *ngFor="let item of opcoes; let i = index">
+  <div>
+    <p *ngIf="escolhaAte == 1" class="radion">
+      <mat-radio-group
+        aria-label="Select an option"
+        ng-model="checked"
+        name="gender"
+        ngModel
+        required
+      >
+        <mat-radio-button value="1">{{ item }};</mat-radio-button>
+      </mat-radio-group>
+    </p>
+  </div>
+
+  <div>
+    <p *ngIf="escolhaAte > 1" class="radion">
+
+      <span>
+        <input
+        [disabled]="variavel == escolhaAte"
+        (change)="fieldsChange($event, i)"
+        type="checkbox"
+        />
+      </span>
+
+      <span class="spans">
+        {{ item }};
+      </span>
+
+      
+    
+    
+    </p>
+  </div>
+</div>
